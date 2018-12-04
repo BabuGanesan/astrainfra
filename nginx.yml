@@ -1,1 +1,12 @@
-
+---
+- hosts: localhost
+  become: true
+  tasks:
+  - apt:
+      name: nginx
+  - git:
+      repo: 'https://github.com/BabuGanesan/astracode.git'
+      dest: /var/www/html/
+  - service:
+      name: nginx
+      state: restarted 
